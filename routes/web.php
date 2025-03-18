@@ -28,3 +28,6 @@ Route::get('/dashboard', [DashboardController::class, 'index'])->middleware('aut
 
 Route::get('/login', [AuthController::class, 'create'])->name('login');
 Route::post('/login', [AuthController::class, 'store']);
+
+Route::get('/clients/add', [ClientController::class, 'create'])->middleware('auth');
+Route::post('/clients', [ClientController::class, 'send'])->middleware('auth');

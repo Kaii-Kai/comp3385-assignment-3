@@ -4,7 +4,7 @@
 <div class ="container ">
 	<h1 class="display-5 fw-bold text-body-emphasis text-center">Login</h1>
 	
-	@if (session()->has(;success'))
+	@if (session()->has('success'))
 		<div class="alert alert-success">
 			{{ session()->get('success') }}
 		</div>
@@ -20,15 +20,15 @@
 		</div>
 	@endif
 	
-	<form action="/login" method="POST">
+	<form action="{{ url('/login') }}" method="POST">
 		@csrf
 		<div class="form-group">
 			<label for= "mail"> Email: </label>
-			<input type="email" class="form-control" id="mail" name="email" required placeholder="Enter email"> <br></br>
+			<input type="email" class="form-control" id="mail" name="email" placeholder="Enter email" required/> <br></br>
 		</div>
 		<div class="form-group">
 			<label for= "password"> Password: </label>
-			<input type="password" id="password" class="form-control" name="password" required placeholder="Enter password"> <br></br>
+			<input type="password" id="password" class="form-control" name="password" placeholder="Enter password" required/> <br></br>
 		</div>
 		<button type="submit" class="btn btn-primary">SIGN IN</button>
 	</form>
